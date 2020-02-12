@@ -1,0 +1,14 @@
+version: '2'
+services:
+    web_app:
+        env_file:
+          providers.env
+        build: .
+        ports:
+            - "5000:5000"
+        volumes:
+            - .:/code
+        depends_on:
+            - redis
+    redis:
+        image: redis
